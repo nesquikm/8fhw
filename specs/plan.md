@@ -49,11 +49,11 @@ Frontend track: M1 ──→ M3a ──→ M3b ───────────
 
 ### Acceptance Criteria
 
-- `cd backend && npm run dev` starts Express on port 3000
-- `cd frontend && ng serve` opens Ionic app in browser (single light theme, design-system.md tokens applied)
-- `cd backend && npm test` runs Vitest and passes
-- `cd frontend && ng test` runs Jasmine/Karma and passes
-- TypeScript strict mode enabled in both `tsconfig.json`
+- [x] `cd backend && npm run dev` starts Express on port 3000
+- [x] `cd frontend && ng serve` opens Ionic app in browser (single light theme, design-system.md tokens applied)
+- [x] `cd backend && npm test` runs Vitest and passes
+- [x] `cd frontend && ng test` runs Jasmine/Karma and passes
+- [x] TypeScript strict mode enabled in both `tsconfig.json`
 
 ### Gate
 

@@ -8,9 +8,18 @@ export default defineConfig({
       include: ['src/**/*.ts'],
       exclude: ['src/**/*.test.ts', 'src/**/*.spec.ts', 'src/index.ts'],
       thresholds: {
-        // Backend coverage targets from testing-spec.md
-        // Services: 80%+, Routes: 70%+
-        // Applied globally for now; per-directory thresholds can be added later
+        'src/services/': {
+          statements: 80,
+          branches: 80,
+          functions: 80,
+          lines: 80,
+        },
+        'src/routes/': {
+          statements: 70,
+          branches: 70,
+          functions: 70,
+          lines: 70,
+        },
       },
     },
     deps: {

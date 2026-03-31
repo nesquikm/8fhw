@@ -1,2 +1,123 @@
-// For information on how to create your own theme, please refer to:
-// https://ionicframework.com/docs/theming/
+// Design System: Equitas Blue
+// All values from specs/design-system.md
+
+:root {
+  // --- Primary (Navy) ---
+  --ion-color-primary: #001e40;
+  --ion-color-primary-rgb: 0, 30, 64;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #001a38;
+  --ion-color-primary-tint: #1a3553;
+
+  // --- Secondary (Gains Green) ---
+  --ion-color-secondary: #006e1c;
+  --ion-color-secondary-rgb: 0, 110, 28;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #006119;
+  --ion-color-secondary-tint: #1a7d33;
+
+  // --- Tertiary (Accent Blue) ---
+  --ion-color-tertiary: #3a5f94;
+  --ion-color-tertiary-rgb: 58, 95, 148;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #335482;
+  --ion-color-tertiary-tint: #4e6f9f;
+
+  // --- Success (same as secondary) ---
+  --ion-color-success: #006e1c;
+  --ion-color-success-rgb: 0, 110, 28;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #006119;
+  --ion-color-success-tint: #1a7d33;
+
+  // --- Danger (Losses Red) ---
+  --ion-color-danger: #ba1a1a;
+  --ion-color-danger-rgb: 186, 26, 26;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #a41717;
+  --ion-color-danger-tint: #c13131;
+
+  // --- Medium (Secondary text) ---
+  --ion-color-medium: #43474f;
+  --ion-color-medium-rgb: 67, 71, 79;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #3b3e46;
+  --ion-color-medium-tint: #565961;
+
+  // --- Light ---
+  --ion-color-light: #f4f3f8;
+  --ion-color-light-rgb: 244, 243, 248;
+  --ion-color-light-contrast: #1a1c1f;
+  --ion-color-light-contrast-rgb: 26, 28, 31;
+  --ion-color-light-shade: #d7d6da;
+  --ion-color-light-tint: #f5f4f9;
+
+  // --- Application-Level Variables ---
+  --ion-background-color: #f9f9fe;
+  --ion-background-color-rgb: 249, 249, 254;
+  --ion-text-color: #1a1c1f;
+  --ion-text-color-rgb: 26, 28, 31;
+  --ion-font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ion-toolbar-background: #001e40;
+  --ion-toolbar-color: #ffffff;
+
+  // --- App-specific custom properties ---
+  --app-surface: #f9f9fe;
+  --app-surface-low: #f4f3f8;
+  --app-surface-container: #eeedf2;
+  --app-surface-high: #e8e8ed;
+  --app-primary-gradient: linear-gradient(135deg, #001e40, #003366);
+  --app-gain: #006e1c;
+  --app-gain-bg: #91f78e;
+  --app-loss: #ba1a1a;
+  --app-loss-bg: #ffdad6;
+  --app-outline: #737780;
+  --app-outline-variant: #c3c6d1;
+  --app-shadow: 0px 12px 32px rgba(26, 28, 31, 0.06);
+
+  // --- Spacing (4px grid) ---
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-16: 4rem;
+
+  // --- Border Radius ---
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  // --- Stepped Colors ---
+  // Generated from background (#f9f9fe) to text (#1a1c1f)
+  --ion-color-step-50: #f0f0f4;
+  --ion-color-step-100: #e6e6eb;
+  --ion-color-step-150: #dddde1;
+  --ion-color-step-200: #d3d3d8;
+  --ion-color-step-250: #cacacf;
+  --ion-color-step-300: #c0c0c5;
+  --ion-color-step-350: #b7b7bc;
+  --ion-color-step-400: #adadb2;
+  --ion-color-step-450: #a4a4a9;
+  --ion-color-step-500: #9a9a9f;
+  --ion-color-step-550: #919196;
+  --ion-color-step-600: #87878c;
+  --ion-color-step-650: #7e7e83;
+  --ion-color-step-700: #747479;
+  --ion-color-step-750: #6b6b70;
+  --ion-color-step-800: #616166;
+  --ion-color-step-850: #58585d;
+  --ion-color-step-900: #4e4e53;
+  --ion-color-step-950: #45454a;
+}
