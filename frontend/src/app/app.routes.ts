@@ -2,12 +2,15 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    path: '',
+    loadChildren: () =>
+      import('./tabs/tabs.routes').then((m) => m.tabsRoutes),
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+    path: 'holding/:ticker',
+    loadComponent: () =>
+      import('./pages/holding-detail/holding-detail.page').then(
+        (m) => m.HoldingDetailPage
+      ),
   },
 ];

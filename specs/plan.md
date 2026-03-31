@@ -133,12 +133,12 @@ curl -s http://localhost:3000/api/insights | jq '.insights[0].summary'  # verify
 
 ### Acceptance Criteria
 
-- Two-tab navigation works: tapping Dashboard/Chat switches content
-- Portfolio service fetches data and exposes grouped holdings signal
-- Insights service fetches and exposes insight cards signal
-- Holding detail route `/holding/:ticker` is registered and navigable
-- Number formatting utility produces correct output for positive/negative values, large numbers, zero
-- Frontend builds and tests pass
+- [x] Two-tab navigation works: tapping Dashboard/Chat switches content
+- [x] Portfolio service fetches data and exposes grouped holdings signal
+- [x] Insights service fetches and exposes insight cards signal
+- [x] Holding detail route `/holding/:ticker` is registered and navigable
+- [x] Number formatting utility produces correct output for positive/negative values, large numbers, zero
+- [x] Frontend builds and tests pass
 
 ### Gate (run after M2 gate passes)
 

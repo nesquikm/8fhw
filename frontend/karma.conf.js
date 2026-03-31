@@ -41,6 +41,9 @@ module.exports = function (config) {
         },
       },
     },
+    proxies: {
+      '/api/': 'http://localhost:3000/api/',
+    },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
