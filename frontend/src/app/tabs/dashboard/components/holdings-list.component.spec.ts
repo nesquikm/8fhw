@@ -104,6 +104,15 @@ describe('HoldingsListComponent', () => {
     expect(items.length).toBe(3);
   });
 
+  it('should display portfolio percent for each holding', () => {
+    fixture.componentRef.setInput('groupedHoldings', mockGrouped);
+    fixture.detectChanges();
+    const el: HTMLElement = fixture.nativeElement;
+    expect(el.textContent).toContain('60.00%');
+    expect(el.textContent).toContain('16.00%');
+    expect(el.textContent).toContain('24.00%');
+  });
+
   it('should not render sections with no holdings', () => {
     fixture.componentRef.setInput('groupedHoldings', { stocks: [], crypto: [mockGrouped.crypto[0]] });
     fixture.detectChanges();

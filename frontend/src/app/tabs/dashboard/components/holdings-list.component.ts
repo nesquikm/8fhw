@@ -17,7 +17,7 @@ import { formatCurrency, formatSignedCurrency, formatPercent, formatQuantity } f
                 <span class="ticker-badge">{{ holding.ticker }}</span>
                 <div class="info">
                   <span class="name">{{ holding.name }}</span>
-                  <span class="secondary">{{ fmtQty(holding.quantity) }} SHARES</span>
+                  <span class="secondary">{{ fmtQty(holding.quantity) }} SHARES · {{ fmtPct2(holding.portfolioPercent) }}</span>
                 </div>
               </div>
               <div class="right">
@@ -41,7 +41,7 @@ import { formatCurrency, formatSignedCurrency, formatPercent, formatQuantity } f
                 <span class="ticker-badge">{{ holding.ticker }}</span>
                 <div class="info">
                   <span class="name">{{ holding.name }}</span>
-                  <span class="secondary">{{ fmtQty(holding.quantity) }} {{ holding.ticker }}</span>
+                  <span class="secondary">{{ fmtQty(holding.quantity) }} {{ holding.ticker }} · {{ fmtPct2(holding.portfolioPercent) }}</span>
                 </div>
               </div>
               <div class="right">
@@ -136,4 +136,5 @@ export class HoldingsListComponent {
   fmtSignedCur = formatSignedCurrency;
   fmtPct = formatPercent;
   fmtQty = formatQuantity;
+  fmtPct2(value: number): string { return `${value.toFixed(2)}%`; }
 }

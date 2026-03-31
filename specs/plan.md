@@ -384,12 +384,12 @@ kill %1
 
 ### Acceptance Criteria
 
-- Full user flow works end-to-end without errors
-- Numbers formatted consistently ($1,234.56, +2.34%, -1.23%)
-- Empty/loading states handled gracefully on all screens
-- Single light theme across all screens
-- All FR-1 through FR-5 acceptance criteria pass
-- All coverage targets met (enforced by threshold config in Vitest and Karma)
+- [x] Full user flow works end-to-end without errors
+- [x] Numbers formatted consistently ($1,234.56, +2.34%, -1.23%)
+- [x] Empty/loading states handled gracefully on all screens
+- [x] Single light theme across all screens
+- [x] All FR-1 through FR-5 acceptance criteria pass
+- [x] All coverage targets met (enforced by threshold config in Vitest and Karma)
 
 ### Gate
 
