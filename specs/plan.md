@@ -85,18 +85,18 @@ cd frontend && ng test --watch=false
 
 ### Acceptance Criteria (maps to FR-1, FR-2, FR-3, FR-5)
 
-- `GET /api/portfolio` returns valid portfolio with holdings matching API contract (AC-5.1)
-- Portfolio response includes `totalValue`, `dailyChange`, `dailyChangePercent` (AC-1.1)
-- Each holding includes: ticker, name, type, quantity, currentPrice, currentValue, avgBuyPrice, gainLoss, gainLossPercent, portfolioPercent (AC-1.4)
-- `GET /api/holdings/AAPL` returns holding with sector and description (AC-5.2)
-- `GET /api/holdings/aapl` returns same result as `GET /api/holdings/AAPL` (case-insensitive)
-- `GET /api/holdings/AAPL/history?range=1M` returns date-sorted price data (AC-5.3)
-- `GET /api/holdings/AAPL/history?range=All` returns ~5 years of daily data (AC-2.2)
-- `GET /api/holdings/UNKNOWN` returns 404
-- `GET /api/insights` returns insight cards with id, title, summary, prompt (AC-5.4)
-- Insight card summaries and prompts reference actual values from the generated portfolio (e.g., real allocation percentages, actual top holdings) — not static text (AC-3.2)
-- Same request on same calendar day returns identical data — PRNG determinism (AC-5.7)
-- Backend tests pass: **services 80%+ coverage, routes 70%+ coverage**
+- [x] `GET /api/portfolio` returns valid portfolio with holdings matching API contract (AC-5.1)
+- [x] Portfolio response includes `totalValue`, `dailyChange`, `dailyChangePercent` (AC-1.1)
+- [x] Each holding includes: ticker, name, type, quantity, currentPrice, currentValue, avgBuyPrice, gainLoss, gainLossPercent, portfolioPercent (AC-1.4)
+- [x] `GET /api/holdings/AAPL` returns holding with sector and description (AC-5.2)
+- [x] `GET /api/holdings/aapl` returns same result as `GET /api/holdings/AAPL` (case-insensitive)
+- [x] `GET /api/holdings/AAPL/history?range=1M` returns date-sorted price data (AC-5.3)
+- [x] `GET /api/holdings/AAPL/history?range=All` returns ~5 years of daily data (AC-2.2)
+- [x] `GET /api/holdings/UNKNOWN` returns 404
+- [x] `GET /api/insights` returns insight cards with id, title, summary, prompt (AC-5.4)
+- [x] Insight card summaries and prompts reference actual values from the generated portfolio (e.g., real allocation percentages, actual top holdings) — not static text (AC-3.2)
+- [x] Same request on same calendar day returns identical data — PRNG determinism (AC-5.7)
+- [x] Backend tests pass: **services 80%+ coverage, routes 70%+ coverage**
 
 ### Gate
 
