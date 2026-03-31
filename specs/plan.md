@@ -216,16 +216,16 @@ kill %1
 
 ### Acceptance Criteria (maps to FR-2)
 
-- Header shows company name, ticker (AC-2.1)
-- Price chart renders with gradient fill and range toggles (AC-2.2)
-- Switching range reloads chart data from backend (AC-2.3)
-- Position summary shows quantity, avg buy price, current value, gain/loss, portfolio weight, sector (AC-2.4)
-- Holding Detail accessible from Dashboard via shared route with slide-in transition (AC-2.5)
-- About section shows description text
-- Skeleton loading shown while data loads
-- Back button navigates back with slide-out transition
-- Visual style follows `design-system.md` tokens and `specs/screens/holding-detail.png` as reference
-- Component tests pass
+- [x] Header shows company name, ticker (AC-2.1)
+- [x] Price chart renders with gradient fill and range toggles (AC-2.2)
+- [x] Switching range reloads chart data from backend (AC-2.3)
+- [x] Position summary shows quantity, avg buy price, current value, gain/loss, portfolio weight, sector (AC-2.4)
+- [x] Holding Detail accessible from Dashboard via shared route with slide-in transition (AC-2.5)
+- [x] About section shows description text
+- [x] Skeleton loading shown while data loads
+- [x] Back button navigates back with slide-out transition
+- [x] Visual style follows `design-system.md` tokens and `specs/screens/holding-detail.png` as reference
+- [x] Component tests pass
 
 ### Gate (run after M2 gate passes)
 
