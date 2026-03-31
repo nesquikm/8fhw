@@ -172,17 +172,17 @@ kill %1
 
 ### Acceptance Criteria (maps to FR-1, FR-3)
 
-- Dashboard shows portfolio summary with total value and daily change in $ and % (AC-1.1)
-- Donut chart renders allocation by asset type — stocks vs. crypto (AC-1.2)
-- Holdings listed grouped by type with section headers (AC-1.3)
-- Each holding row shows ticker badge, name, quantity, value, gain/loss colored (AC-1.4)
-- Tapping a holding navigates to Holding Detail with slide-in transition (AC-1.5)
-- Insight cards scroll horizontally with dot indicators, each shows title and summary (AC-3.1–3.3)
-- Tapping insight card switches to Chat tab and pre-fills prompt — does NOT auto-send, does NOT clear history (AC-3.4)
-- Skeleton loading screens shown while data loads
-- Pull-to-refresh re-fetches portfolio data
-- Visual style matches `specs/screens/dashboard.png` and `design-system.md` (navy gradient hero, green/blue accents, white cards on `--app-surface` bg)
-- Component tests pass
+- [x] Dashboard shows portfolio summary with total value and daily change in $ and % (AC-1.1)
+- [x] Donut chart renders allocation by asset type — stocks vs. crypto (AC-1.2)
+- [x] Holdings listed grouped by type with section headers (AC-1.3)
+- [x] Each holding row shows ticker badge, name, quantity, value, gain/loss colored (AC-1.4)
+- [x] Tapping a holding navigates to Holding Detail with slide-in transition (AC-1.5)
+- [x] Insight cards scroll horizontally with dot indicators, each shows title and summary (AC-3.1–3.3)
+- [x] Tapping insight card switches to Chat tab and pre-fills prompt — does NOT auto-send, does NOT clear history (AC-3.4)
+- [x] Skeleton loading screens shown while data loads
+- [x] Pull-to-refresh re-fetches portfolio data
+- [x] Visual style matches `specs/screens/dashboard.png` and `design-system.md` (navy gradient hero, green/blue accents, white cards on `--app-surface` bg)
+- [x] Component tests pass
 
 ### Gate (run after M2 gate passes)
 
