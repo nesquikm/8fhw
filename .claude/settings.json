@@ -1,0 +1,29 @@
+{
+  "enabledPlugins": {
+    "dev-process-toolkit@dev-process-toolkit": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm test *)",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(npx ng *)",
+      "Bash(npx ng build *)",
+      "Bash(npx ng test *)",
+      "Bash(npx ng serve *)",
+      "Bash(npx ionic *)",
+      "Bash(npx vitest *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git branch *)",
+      "Bash(git checkout *)",
+      "Bash(git switch *)",
+      "Bash(gh *)",
+      "Bash(curl -s http://localhost:*)"
+    ]
+  }
+}
