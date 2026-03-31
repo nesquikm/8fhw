@@ -255,14 +255,14 @@ kill %1
 
 ### Acceptance Criteria (maps to FR-4, FR-5)
 
-- `GET /api/chat/messages` returns persisted messages in chronological order with `createdAt` timestamps (AC-5.5)
-- `POST /api/chat/messages` streams response chunks in `data: {"content":"..."}` / `data: [DONE]` format (AC-5.6)
-- Messages persist across server restarts (SQLite file on disk)
-- Only last 50 messages (MAX_HISTORY_MESSAGES) sent to LLM; full history returned to client (AC-4.9)
-- System prompt includes current portfolio data via CAG
-- System prompt instructs `[HOLDING:TICKER]` format
-- AI provider configured via env vars: AI_API_URL, AI_API_KEY, AI_MODEL (AC-5.8)
-- Backend tests pass: **services 80%+ coverage, routes 70%+ coverage**
+- [x] `GET /api/chat/messages` returns persisted messages in chronological order with `createdAt` timestamps (AC-5.5)
+- [x] `POST /api/chat/messages` streams response chunks in `data: {"content":"..."}` / `data: [DONE]` format (AC-5.6)
+- [x] Messages persist across server restarts (SQLite file on disk)
+- [x] Only last 50 messages (MAX_HISTORY_MESSAGES) sent to LLM; full history returned to client (AC-4.9)
+- [x] System prompt includes current portfolio data via CAG
+- [x] System prompt instructs `[HOLDING:TICKER]` format
+- [x] AI provider configured via env vars: AI_API_URL, AI_API_KEY, AI_MODEL (AC-5.8)
+- [x] Backend tests pass: **services 80%+ coverage, routes 70%+ coverage**
 
 ### Gate
 
