@@ -339,20 +339,20 @@ kill %1
 
 ### Acceptance Criteria (maps to FR-4)
 
-- Chat is accessible via the second bottom tab (AC-4.1)
-- Chat tab loads conversation history from backend on init (AC-4.7)
-- User can type and send messages (AC-4.2)
-- AI responses stream token-by-token with visible text accumulation (AC-4.3)
-- Thinking indicator (animated dots) shown before first token while state is `thinking` (AC-4.4)
-- Markdown renders correctly in assistant bubbles — bold, lists, tables (AC-4.5)
-- `[HOLDING:TICKER]` renders as tappable holding chip (per `design-system.md` §8) → navigates to holding detail (AC-4.6, AC-2.5)
-- Single continuous conversation — no thread management (AC-4.8)
-- Error state: error message shown, retry available, partial text cleared
-- Insight card pre-fill works: prompt appears in input, no auto-send, no clear (AC-3.4)
-- Empty state shown when no history
-- Visual style follows `design-system.md` tokens and `specs/screens/chat.png` as reference (navy user bubbles, `--app-surface-container` assistant bubbles, navy send button)
-- Component tests pass
-- Frontend tests pass: **services 70%+ coverage, components 50%+ coverage** (cumulative across M3a–M5b)
+- [x] Chat is accessible via the second bottom tab (AC-4.1)
+- [x] Chat tab loads conversation history from backend on init (AC-4.7)
+- [x] User can type and send messages (AC-4.2)
+- [x] AI responses stream token-by-token with visible text accumulation (AC-4.3)
+- [x] Thinking indicator (animated dots) shown before first token while state is `thinking` (AC-4.4)
+- [x] Markdown renders correctly in assistant bubbles — bold, lists, tables (AC-4.5)
+- [x] `[HOLDING:TICKER]` renders as tappable holding chip (per `design-system.md` §8) → navigates to holding detail (AC-4.6, AC-2.5)
+- [x] Single continuous conversation — no thread management (AC-4.8)
+- [x] Error state: error message shown, retry available, partial text cleared
+- [x] Insight card pre-fill works: prompt appears in input, no auto-send, no clear (AC-3.4)
+- [x] Empty state shown when no history
+- [x] Visual style follows `design-system.md` tokens and `specs/screens/chat.png` as reference (navy user bubbles, `--app-surface-container` assistant bubbles, navy send button)
+- [x] Component tests pass
+- [x] Frontend tests pass: **services 70%+ coverage, components 50%+ coverage** (cumulative across M3a–M5b)
 
 ### Gate (run after M4 gate passes)
 
