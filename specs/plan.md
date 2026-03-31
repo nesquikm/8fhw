@@ -297,12 +297,12 @@ curl -N -X POST http://localhost:3000/api/chat/messages \
 
 ### Acceptance Criteria
 
-- Chat service fetches and exposes message history via signal
-- Streaming parses SSE format correctly, including cross-chunk buffering
-- State machine transitions through all 4 states correctly on happy path and error paths
-- `[HOLDING:TICKER]` patterns detected in accumulated text
-- Delta tokens accumulate into streaming message signal
-- Service tests pass with full state machine coverage
+- [x] Chat service fetches and exposes message history via signal
+- [x] Streaming parses SSE format correctly, including cross-chunk buffering
+- [x] State machine transitions through all 4 states correctly on happy path and error paths
+- [x] `[HOLDING:TICKER]` patterns detected in accumulated text
+- [x] Delta tokens accumulate into streaming message signal
+- [x] Service tests pass with full state machine coverage
 
 ### Gate (run after M4 gate passes)
 
