@@ -1,5 +1,5 @@
-import { Component, computed, effect, inject, OnInit, untracked } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle } from '@ionic/angular/standalone';
+import { Component, computed, effect, inject, OnInit, untracked, viewChild } from '@angular/core';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonFooter } from '@ionic/angular/standalone';
 import { ChatService } from '../../services/chat.service';
 import { MessageListComponent } from './components/message-list.component';
 import { ChatInputComponent } from './components/chat-input.component';
@@ -16,7 +16,7 @@ import { ChatMessage } from '../../models/chat.model';
       </ion-toolbar>
     </ion-header>
 
-    <div class="chat-body">
+    <ion-content class="chat-content" #chatContent>
       @if (chatService.messages().length === 0 && chatService.state() === 'idle' && !chatService.error()) {
         <div class="empty-state">
           <p class="empty-text">Ask me anything about your portfolio</p>
@@ -45,19 +45,16 @@ import { ChatMessage } from '../../models/chat.model';
           <button class="retry-button" (click)="retry()">Retry</button>
         </div>
       }
+    </ion-content>
 
+    <ion-footer class="chat-footer">
       <app-chat-input
         [canSend]="chatService.state() === 'idle'"
         (messageSent)="sendMessage($event)"
       />
-    </div>
+    </ion-footer>
   `,
   styles: [`
-    :host {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
     ion-toolbar {
       --background: var(--ion-toolbar-background);
       --color: var(--ion-toolbar-color);
@@ -66,15 +63,15 @@ import { ChatMessage } from '../../models/chat.model';
       font-size: 1.25rem;
       font-weight: 600;
     }
-    .chat-body {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      background: var(--app-surface);
+    .chat-content {
+      --background: var(--app-surface);
+    }
+    .chat-footer {
+      background: transparent;
+      box-shadow: none;
     }
     .empty-state {
-      flex: 1;
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -125,6 +122,8 @@ import { ChatMessage } from '../../models/chat.model';
     IonHeader,
     IonToolbar,
     IonTitle,
+    IonContent,
+    IonFooter,
     MessageListComponent,
     ChatInputComponent,
     ThinkingIndicatorComponent,
@@ -134,6 +133,7 @@ import { ChatMessage } from '../../models/chat.model';
 export class ChatPage implements OnInit {
   readonly chatService = inject(ChatService);
   private lastSentContent = '';
+  private readonly contentEl = viewChild<IonContent>('chatContent');
 
   readonly streamingMessage = computed<ChatMessage>(() => ({
     id: -1,
@@ -152,6 +152,24 @@ export class ChatPage implements OnInit {
         });
       }
     });
+
+    // Scroll to bottom when messages change or streaming updates
+    effect(() => {
+      this.chatService.messages();
+      this.chatService.streamingContent();
+      this.scrollToBottom();
+    });
+  }
+
+  private scrollToBottom(): void {
+    requestAnimationFrame(() => {
+      this.contentEl()?.scrollToBottom(100);
+    });
+  }
+
+  // Ionic lifecycle: fires each time this tab becomes active (after transition)
+  ionViewDidEnter(): void {
+    this.scrollToBottom();
   }
 
   ngOnInit(): void {

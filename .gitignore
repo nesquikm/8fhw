@@ -30,3 +30,5 @@ coverage/
 
 # SQLite
 *.db
+*.db-wal
+*.db-shm

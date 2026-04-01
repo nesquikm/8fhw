@@ -31,7 +31,7 @@ import { arrowUp } from 'ionicons/icons';
       align-items: center;
       gap: var(--spacing-2);
       padding: var(--spacing-4);
-      padding-bottom: calc(var(--spacing-4) + env(safe-area-inset-bottom));
+      padding-bottom: var(--spacing-4);
       background: white;
       border-top: 1px solid rgba(195, 198, 209, 0.15);
     }

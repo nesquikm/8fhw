@@ -19,7 +19,7 @@ All design tokens (colors, typography, spacing, border radius, elevation) are de
 2. **Asset Allocation Card** — white card on `--app-surface` background, `--radius-xl`
    - Header: "Asset Allocation" (Headline scale: 1.25rem/600)
    - Content: donut chart (left) + legend (right) in a row
-   - Donut: `#003366` for stocks, `#78dc77` for crypto (per `design-system.md` §9 chart theming), centered number showing asset type count
+   - Donut: `#003366` for stocks, `#78dc77` for crypto (per `design-system.md` §9 chart theming), no center text
    - Legend items: colored dot + label + percentage
    - Implementation: `ng2-charts` `DoughnutChart` with `cutout: '70%'`
 

@@ -103,6 +103,19 @@ export const environment = {
 
 Make sure the backend is accessible on your local network (no firewall blocking port 3000).
 
+## API
+
+All endpoints are prefixed with `/api`.
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/portfolio` | Full portfolio (value, change, allocations, holdings) |
+| GET | `/api/holdings/:ticker` | Holding detail by ticker (case-insensitive) |
+| GET | `/api/holdings/:ticker/history?range=` | Price history — range: `1W`, `1M`, `3M`, `1Y`, `All` |
+| GET | `/api/insights` | Portfolio insight cards |
+| GET | `/api/chat/messages` | Chat message history |
+| POST | `/api/chat/messages` | Send message, streams AI response (SSE) |
+
 ## Architecture
 
 ### AI Integration: Context-Augmented Generation (CAG)
@@ -119,6 +132,23 @@ All financial data (holdings, prices, history) is generated using a **seeded pse
 
 AI responses stream via `fetch` + `ReadableStream` consuming a POST-based chunked response with SSE-formatted data lines. This provides token-by-token rendering for a polished chat experience. Standard `EventSource` is not used because it only supports GET requests.
 
+## Claude Code Usage Stats
+
+Built entirely with Claude Code over 2 days (March 31 – April 1, 2026).
+
+| Metric | Value |
+|---|---|
+| Sessions | 21 |
+| Assistant messages | 2,195 |
+| Model | Claude Opus 4.6 |
+| Output tokens | 492K |
+| Cache read tokens | 160.15M |
+| Cache creation tokens | 6.64M |
+| **Total tokens** | **167.3M** |
+| **Estimated cost** | **~$462** |
+| Tests | 252 (85 backend + 167 frontend) |
+| Coverage (lines) | 97% backend / 89% frontend |
+
 ## Future Improvements
 
 ### Rolling Summarization
@@ -132,3 +162,7 @@ Currently, chat history is persisted only on the backend (SQLite). A production 
 
 ### RAG with Embeddings
 As user data grows beyond what fits in a single LLM context window — transaction history, market news, research notes, documents — the CAG approach should graduate to proper **Retrieval-Augmented Generation (RAG)**. This involves embedding documents into a vector database, retrieving relevant chunks per query, and injecting only the most relevant context. This enables scaling to large portfolios with rich historical data while keeping AI responses grounded and accurate.
+
+## License
+
+[MIT](LICENSE)

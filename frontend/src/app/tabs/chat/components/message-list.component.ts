@@ -1,11 +1,11 @@
-import { Component, ElementRef, effect, input, viewChild } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ChatMessage } from '../../../models/chat.model';
 import { MessageBubbleComponent } from './message-bubble.component';
 
 @Component({
   selector: 'app-message-list',
   template: `
-    <div class="messages" #scrollContainer>
+    <div class="messages">
       @for (message of messages(); track message.id; let i = $index) {
         <div
           class="message-wrapper"
@@ -22,12 +22,8 @@ import { MessageBubbleComponent } from './message-bubble.component';
     :host {
       display: flex;
       flex-direction: column;
-      flex: 1;
-      overflow: hidden;
     }
     .messages {
-      flex: 1;
-      overflow-y: auto;
       padding: var(--spacing-4) var(--spacing-5);
       display: flex;
       flex-direction: column;
@@ -47,25 +43,4 @@ import { MessageBubbleComponent } from './message-bubble.component';
 export class MessageListComponent {
   readonly messages = input.required<ChatMessage[]>();
   readonly scrollTrigger = input<unknown>(undefined);
-
-  private readonly scrollContainer = viewChild<ElementRef>('scrollContainer');
-
-  constructor() {
-    effect(() => {
-      this.messages();
-      this.scrollTrigger();
-      this.scrollToBottom();
-    });
-  }
-
-  scrollToBottom(): void {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const el = this.scrollContainer()?.nativeElement;
-        if (el) {
-          el.scrollTop = el.scrollHeight;
-        }
-      });
-    });
-  }
 }
