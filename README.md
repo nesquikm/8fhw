@@ -1,5 +1,9 @@
 # AI Portfolio Companion
 
+<p align="center">
+  <img src="docs/demo.gif" alt="App demo" width="280">
+</p>
+
 A mobile-first AI portfolio companion app for viewing investment portfolios (stocks and crypto), chatting with an AI assistant about holdings, and receiving contextual portfolio insights.
 
 Built with **Angular 21 / Ionic 8 / Capacitor 8** (frontend) and **Node.js / Express** (backend).
