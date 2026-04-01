@@ -87,12 +87,15 @@ import { formatCurrency, formatSignedCurrency, formatPercent, formatQuantity } f
       background: var(--ion-color-primary);
       color: var(--ion-color-primary-contrast);
       border-radius: var(--radius-sm);
-      font-size: 0.75rem;
+      font-size: 0.625rem;
       font-weight: 700;
       text-transform: uppercase;
-      padding: var(--spacing-1) var(--spacing-2);
-      min-width: 40px;
+      letter-spacing: 0.03rem;
+      padding: var(--spacing-1) var(--spacing-1);
+      width: 48px;
       text-align: center;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .info {
       display: flex;

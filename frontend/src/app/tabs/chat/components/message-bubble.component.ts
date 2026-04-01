@@ -113,7 +113,7 @@ export class MessageBubbleComponent {
   readonly hasHoldings = computed(() => this.segments().some(s => s.type === 'holding'));
 
   static splitIntoSegments(text: string): MessageSegment[] {
-    const regex = /\[HOLDING:([A-Z]{1,5})\]/g;
+    const regex = /\*{0,2}\[HOLDING:([A-Z]{1,5})\]\*{0,2}/g;
     const segments: MessageSegment[] = [];
     let lastIndex = 0;
     let match: RegExpExecArray | null;
