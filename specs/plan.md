@@ -167,7 +167,7 @@ kill %1
 5. Assemble **dashboard page**: hero → allocation chart → insight cards → holdings sections. Background: `--app-surface`. Content in `ion-content` with scrollable overflow.
 6. Add `ion-refresher` for pull-to-refresh — re-fetches portfolio data on pull-down
 7. Implement **skeleton loading states**: pulsing gray rectangles matching layout of hero section, chart area, and holding rows. Shown while portfolio data loads. Use `ion-skeleton-text`.
-8. Wire insight card tap → Chat tab with **pre-filled prompt (no auto-send, no clear history)** (AC-3.4)
+8. Wire insight card tap → Chat tab with **pre-filled prompt (auto-sends prompt, no clear history)** (AC-3.4)
 9. Write component tests: portfolio-summary (renders values, color for positive/negative), allocation-chart (renders segments), insight-cards (renders cards, emits prompt on tap), holdings-list (groups by type, navigates on tap)
 
 ### Acceptance Criteria (maps to FR-1, FR-3)
@@ -178,7 +178,7 @@ kill %1
 - [x] Each holding row shows ticker badge, name, quantity, value, gain/loss colored (AC-1.4)
 - [x] Tapping a holding navigates to Holding Detail with slide-in transition (AC-1.5)
 - [x] Insight cards scroll horizontally with dot indicators, each shows title and summary (AC-3.1–3.3)
-- [x] Tapping insight card switches to Chat tab and pre-fills prompt — does NOT auto-send, does NOT clear history (AC-3.4)
+- [x] Tapping insight card switches to Chat tab and pre-fills prompt — auto-sends the prompt, does NOT clear history (AC-3.4)
 - [x] Skeleton loading screens shown while data loads
 - [x] Pull-to-refresh re-fetches portfolio data
 - [x] Visual style matches `specs/screens/dashboard.png` and `design-system.md` (navy gradient hero, green/blue accents, white cards on `--app-surface` bg)
@@ -331,7 +331,7 @@ kill %1
 5. Build **chat-input** component: fixed at bottom above tab bar. White container with ghost border top (`1px solid rgba(195, 198, 209, 0.15)`). Input field: `--radius-md`, `--app-surface-low` bg, placeholder "Ask about your portfolio...". Circular send button: `--ion-color-primary` bg, white arrow icon. Disabled (reduced opacity) when input empty or chat state not `idle`. Safe-area bottom padding for notched devices.
 6. Build **thinking indicator**: left-aligned assistant-style bubble with three animated dots (CSS pulse/opacity animation in sequence). Shown while chat state is `thinking`.
 7. Build **chat header**: `ion-header` with `ion-toolbar` (navy bg per `design-system.md` toolbar theming), "AI Assistant" title (Headline scale, white)
-8. Wire insight card pre-fill: receive prompt from dashboard navigation (via route state or service), populate input field — **no auto-send, no clear history** (AC-3.4)
+8. Wire insight card pre-fill: receive prompt from dashboard navigation (via route state or service), populate input field — **auto-sends prompt, no clear history** (AC-3.4)
 9. Handle **error state**: dismissible error banner or inline message below last message. "Retry" button transitions state `error → idle` and re-sends. Partial streamed text cleared.
 10. **Keyboard behavior**: input focus pushes content up (Ionic `ion-content` resize mode), message list stays scrolled to bottom. Keyboard dismisses on scroll-up. Send on keyboard "return" key or send button tap.
 11. **Empty state**: when no chat history, show centered text "Ask me anything about your portfolio" with a suggested prompt chip

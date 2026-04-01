@@ -36,7 +36,7 @@ The user sees contextual insight cards on the dashboard that bridge to the chat.
 - **AC-3.1:** Insight cards are displayed in a horizontal scrollable row on the dashboard
 - **AC-3.2:** Cards are served from the backend (not hardcoded in the app). Card content is derived from the generated mock portfolio (e.g., actual allocation percentages and top holdings from the PRNG-generated data), not static text.
 - **AC-3.3:** Each card has a title, summary text, and a pre-filled prompt
-- **AC-3.4:** Tapping a card navigates to the Chat tab and pre-fills the prompt in the input field (does not auto-send, does not clear existing conversation)
+- **AC-3.4:** Tapping a card navigates to the Chat tab and automatically sends the prompt (does not clear existing conversation)
 
 ### FR-4: AI Chat
 The user can have a streaming conversation with an AI assistant about their portfolio.

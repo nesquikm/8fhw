@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit, viewChild } from '@angular/core';
+import { Component, computed, effect, inject, OnInit, untracked } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle } from '@ionic/angular/standalone';
 import { ChatService } from '../../services/chat.service';
 import { MessageListComponent } from './components/message-list.component';
@@ -25,7 +25,7 @@ import { ChatMessage } from '../../models/chat.model';
           </button>
         </div>
       } @else {
-        <app-message-list [messages]="chatService.messages()">
+        <app-message-list [messages]="chatService.messages()" [scrollTrigger]="chatService.streamingContent()">
           @if (chatService.state() === 'streaming' && chatService.streamingContent()) {
             <div class="message-wrapper new-sender" style="margin-top: var(--spacing-4)">
               <app-message-bubble [message]="streamingMessage()" />
@@ -133,7 +133,6 @@ import { ChatMessage } from '../../models/chat.model';
 })
 export class ChatPage implements OnInit {
   readonly chatService = inject(ChatService);
-  private readonly chatInput = viewChild(ChatInputComponent);
   private lastSentContent = '';
 
   readonly streamingMessage = computed<ChatMessage>(() => ({
@@ -143,15 +142,20 @@ export class ChatPage implements OnInit {
     createdAt: new Date().toISOString(),
   }));
 
+  constructor() {
+    effect(() => {
+      const prompt = this.chatService.pendingPrompt();
+      if (prompt) {
+        untracked(() => {
+          this.chatService.pendingPrompt.set(null);
+          this.sendMessage(prompt);
+        });
+      }
+    });
+  }
+
   ngOnInit(): void {
     this.chatService.loadHistory();
-
-    const state = history.state;
-    if (state?.prefillPrompt) {
-      setTimeout(() => {
-        this.chatInput()?.prefill(state.prefillPrompt);
-      });
-    }
   }
 
   sendMessage(content: string): void {

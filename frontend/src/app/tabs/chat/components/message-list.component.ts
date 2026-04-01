@@ -46,22 +46,26 @@ import { MessageBubbleComponent } from './message-bubble.component';
 })
 export class MessageListComponent {
   readonly messages = input.required<ChatMessage[]>();
+  readonly scrollTrigger = input<unknown>(undefined);
 
   private readonly scrollContainer = viewChild<ElementRef>('scrollContainer');
 
   constructor() {
     effect(() => {
       this.messages();
+      this.scrollTrigger();
       this.scrollToBottom();
     });
   }
 
   scrollToBottom(): void {
     requestAnimationFrame(() => {
-      const el = this.scrollContainer()?.nativeElement;
-      if (el) {
-        el.scrollTop = el.scrollHeight;
-      }
+      requestAnimationFrame(() => {
+        const el = this.scrollContainer()?.nativeElement;
+        if (el) {
+          el.scrollTop = el.scrollHeight;
+        }
+      });
     });
   }
 }

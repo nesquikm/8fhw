@@ -1,9 +1,9 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'frontend',
-  webDir: 'www'
+  appId: 'com.eightfigures.portfolio',
+  appName: 'AI Portfolio Companion',
+  webDir: 'www',
 };
 
 export default config;

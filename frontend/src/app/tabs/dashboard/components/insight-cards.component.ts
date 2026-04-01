@@ -44,7 +44,7 @@ import { Insight } from '../../../models/insight.model';
       display: none;
     }
     .insight-card {
-      min-width: 280px;
+      width: 280px;
       flex-shrink: 0;
       background: #ffffff;
       border-radius: var(--radius-xl);

@@ -7,6 +7,7 @@ import {
 } from '@ionic/angular/standalone';
 import { PortfolioService } from '../../services/portfolio.service';
 import { InsightsService } from '../../services/insights.service';
+import { ChatService } from '../../services/chat.service';
 import { PortfolioSummaryComponent } from './components/portfolio-summary.component';
 import { AllocationChartComponent } from './components/allocation-chart.component';
 import { InsightCardsComponent } from './components/insight-cards.component';
@@ -133,6 +134,7 @@ export class DashboardPage implements OnInit {
   readonly portfolioService = inject(PortfolioService);
   readonly insightsService = inject(InsightsService);
   private readonly router = inject(Router);
+  private readonly chatService = inject(ChatService);
 
   ngOnInit(): void {
     this.portfolioService.load();
@@ -148,6 +150,7 @@ export class DashboardPage implements OnInit {
   }
 
   onInsightTap(prompt: string): void {
-    this.router.navigate(['/chat'], { state: { prefillPrompt: prompt } });
+    this.chatService.pendingPrompt.set(prompt);
+    this.router.navigate(['/chat']);
   }
 }

@@ -11,7 +11,7 @@ export interface MessageSegment {
 @Component({
   selector: 'app-message-bubble',
   template: `
-    <div class="bubble" [class.user]="message().role === 'user'" [class.assistant]="message().role === 'assistant'">
+    <div class="bubble" [class.user]="message().role === 'user'" [class.assistant]="message().role === 'assistant'" [class.has-holdings]="hasHoldings()">
       @for (segment of segments(); track $index) {
         @if (segment.type === 'text') {
           <markdown [data]="segment.value" />
@@ -44,11 +44,20 @@ export interface MessageSegment {
       border-radius: var(--radius-lg);
       border-bottom-left-radius: var(--spacing-1);
     }
+    /* Inline flow when holding links are present */
+    .bubble.has-holdings > markdown,
+    .bubble.has-holdings > app-holding-link {
+      display: inline;
+    }
+    .bubble.has-holdings ::ng-deep p {
+      display: inline;
+      margin: 0;
+    }
     /* Markdown styling inside bubbles */
-    .bubble ::ng-deep p {
+    .bubble:not(.has-holdings) ::ng-deep p {
       margin: 0 0 0.5em;
     }
-    .bubble ::ng-deep p:last-child {
+    .bubble:not(.has-holdings) ::ng-deep p:last-child {
       margin-bottom: 0;
     }
     .bubble ::ng-deep ul,
@@ -87,6 +96,10 @@ export interface MessageSegment {
     .bubble.user ::ng-deep pre {
       background: rgba(255, 255, 255, 0.15);
     }
+    /* Holding chips need stronger contrast inside assistant bubbles */
+    .bubble.assistant ::ng-deep .holding-chip {
+      --background: white;
+    }
   `],
   imports: [MarkdownComponent, HoldingLinkComponent],
 })
@@ -96,6 +109,8 @@ export class MessageBubbleComponent {
   readonly segments = computed<MessageSegment[]>(() => {
     return MessageBubbleComponent.splitIntoSegments(this.message().content);
   });
+
+  readonly hasHoldings = computed(() => this.segments().some(s => s.type === 'holding'));
 
   static splitIntoSegments(text: string): MessageSegment[] {
     const regex = /\[HOLDING:([A-Z]{1,5})\]/g;

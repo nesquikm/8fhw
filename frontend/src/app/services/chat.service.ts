@@ -10,6 +10,7 @@ export class ChatService {
   readonly state = signal<ChatState>('idle');
   readonly streamingContent = signal<string>('');
   readonly error = signal<string | null>(null);
+  readonly pendingPrompt = signal<string | null>(null);
 
   constructor(api: ApiService) {
     this.api = api;
